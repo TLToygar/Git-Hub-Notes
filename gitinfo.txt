@@ -1,0 +1,36 @@
+Git Terminal Kullanım Notları:
+
+pwd -> bulunduğun konumu gösterir
+ls -> bulunduğun dosyanın içerisindekileri gösterir
+ls -la -> gizli dosyaları da gösterir.
+cd -> change directory  
+cd .. -> geri gelme
+mkdir XXX -> XXX ADINDA klasör oluşturur
+touch not.txt -> not.txt adında not defteri oluşturur
+touch .gitignore -> gitignore andında bir dosya oluşturur. bu dosyanın içine girilecek dosya isimleri git repoya dahil edilmez. gizli olarak tutulur.
+-örneğin gizli.txt dosyamızın içinda password var ve bunu başka bir dosyadan okuyor ancak biz github'a veya git'e değil kendi bünyemizde saklamak istiyorsak gitignore dosyasına gizli.txt yazdığımız zaman -ve bunu add&commit'lediğimizde artık gizli.txt'yi takip etmeyecektir.
+rm not.txt -> not.txt adındaki dosyayı siler
+rm -rf XXX -> XXX adındaki klasörü siler
+git -> yardım dok.
+git config --global user.name "Toygar Cosar" -> kullanıcı adı eklemeye yarar
+git config user.name -> User name gösterir
+git config --global user.email cosartoygar@gmail.com -> email eklemeye yarar
+git status -> bulunduğun yerin repo olup olmadığı/ bağlantısı olup olmadığını kontrol eder
+git init -> bulunan klasörü git'e bağlar. 
+git add -> oluşturulan untracked file'ı commit olacak diye işaretler, commitlemez. örnk kullanım: git add not.txt
+git add . -> değişiklik yapılmış tüm dosyaları ekler tek tek yazmadan
+git commit -m "example commit message" -> commit atar, mesajı da buraya eklemek daha pratiktir.   
+git log-> kimin ne zaman commit attığını detail gösterir.
+git branch -> güncel branch'ı gösterir.
+git branch feat -> feat(feature) branch'i açmak için kullanılır. head burdan yürür
+git switch master -> master'a geri döner.
+git merge feat -> master ile feat birleştirilir, head master'a geçer.
+git stash -> yapılan değişiklikleri saklar
+git stash pop -> saklı değişiklikleri listeden çıkartıp gösterir.
+git stash apply -> saklı değişiklikleri farklı branchlerde uygulamak adına listede tutar ve gösterir.
+git stash list -> saklama listesi burada tutulur.
+git stash clear -> saklı listeyi temizler.
+git reset 123hash -> 123hash nolu commit'ten head devam eder. daha sonra yapılan içerikleri değişiklikleri korur ancak git üzerindeki değişiklikleri delete eder
+git reset --hard 123hash -> içerikleriyle birlikte siler. tek başına çalışmak için olabilir ama toplu çalışmada önerilmez.
+git revert 123hash -> 123hash nolu committen devam eder. sonrasındaki değişiklikleri git üzerinde tutar ama dosyada tutmaz. log tutma açısından daha önerilir.
+
