@@ -50,4 +50,5 @@ git push //  origin atandıysa ve üstteki -u ile kullanılan kod çalıştırı
 git push origin feat // feat branch'ını push etmek için kullanılır.
 git fetch origin master // GitHub'daki proje local'dekinden ilerideyse, 2. bir kişi commit attıysa bunları local'e alabilmek için kullanılır. kullanıldıktan sonra git status çalıştırılarak bir değişiklik olup olmadığını görebilirsin. git checkout origin/master çalıştırarak dosyada yapılan güncellemeleri logları gözlemleyebilirsin(head kopar). git switch master ile tekrar head bağlanır. eğer bir sıkıntı yoksa ve güncel değişiklikleri de almak istiyorsan aşağıdaki komutu çalıştır. 
 git pull origin master // güncel durumu kendi projene merge ederek GitHub'daki değişiklikleri almış olursun. eğer artık local ilerideyse git push origin/master çalıştırılarak senkron hale getirebilirsin.
- 
+
+git clone url.git // github üzerindeki bir projeyi bulunan konuma alır.
