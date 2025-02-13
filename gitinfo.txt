@@ -21,7 +21,8 @@ git add // oluşturulan untracked file'ı commit olacak diye işaretler, commitl
 git add . // değişiklik yapılmış tüm dosyaları ekler tek tek yazmadan
 git commit -m "example commit message" // commit atar, mesajı da buraya eklemek daha pratiktir.   
 git log// kimin ne zaman commit attığını detail gösterir.
-git branch // güncel branch'ı gösterir.
+git branch // güncel branch'ı gösterir. diğer branch'leri de görmek için kullanılır.
+git branch -r // remote branch'leri gösterir
 git branch feat // feat(feature) branch'i açmak için kullanılır. head burdan yürür
 git switch master // master'a geri döner.
 git merge feat // master ile feat birleştirilir, head master'a geçer.
@@ -30,6 +31,7 @@ git stash pop // saklı değişiklikleri listeden çıkartıp gösterir.
 git stash apply // saklı değişiklikleri farklı branchlerde uygulamak adına listede tutar ve gösterir.
 git stash list // saklama listesi burada tutulur.
 git stash clear // saklı listeyi temizler.
+git checkout 123hash // 123hash nolu commit'e bakış atmamızı sağlar. o adıma geri döneriz. head kopar. tekrar bağlamak için: buradan kaldığın yere geri dönmek için git switch master diyerek değişiklik yapmadan geri dönebilirsin ya da yeni bir branch açıp yeni değişiklikleri uygulayabilirsin. 
 git reset 123hash // 123hash nolu commit'ten head devam eder. daha sonra yapılan içerikleri değişiklikleri korur ancak git üzerindeki değişiklikleri delete eder
 git reset --hard 123hash // içerikleriyle birlikte siler. tek başına çalışmak için olabilir ama toplu çalışmada önerilmez.
 git revert 123hash // 123hash nolu committen devam eder. sonrasındaki değişiklikleri git üzerinde tutar ama dosyada tutmaz. log tutma açısından daha önerilir.
@@ -37,6 +39,7 @@ git diff // add&commit yapılmamışsa son commitle güncel durumun arasındaki 
 git diff HEAD // son commitle güncel durumun arasındaki farklılıklar gösterilir
 git diff 123hash 321hash // 123hash ile 321hash nolu commitler arasındaki farklılıkları gösterir. boşluk kabul etmezse : konulabilir
 git diff master feat // master branch'i ile feat branchi arasındaki farkları gösterir.
+git rebase master // 2.bir branch'den çalıştırılır, log temizlemek hem de git tarihini tekrar yazmak için kullanılabilir. eğer 2.kişilerle paylaşıldıysa kullanmamak önerilir. merge kullanılabilir. tek çalışmalarda kullanılabilir. 
 
 -----------------------------------------------------------------------------
 GitHub Notları:
@@ -45,3 +48,6 @@ git remote add origin https://ourrepourl.git // ourrepourl= yeni oluşturulan re
 git push -u origin master // master branch'ini originde atadığımız url'e gönderir.
 git push //  origin atandıysa ve üstteki -u ile kullanılan kod çalıştırıldıysa bu kod direkt gönderir ekstra birşey yazmaya gerek kalmadan.
 git push origin feat // feat branch'ını push etmek için kullanılır.
+git fetch origin master // GitHub'daki proje local'dekinden ilerideyse, 2. bir kişi commit attıysa bunları local'e alabilmek için kullanılır. kullanıldıktan sonra git status çalıştırılarak bir değişiklik olup olmadığını görebilirsin. git checkout origin/master çalıştırarak dosyada yapılan güncellemeleri logları gözlemleyebilirsin(head kopar). git switch master ile tekrar head bağlanır. eğer bir sıkıntı yoksa ve güncel değişiklikleri de almak istiyorsan aşağıdaki komutu çalıştır. 
+git pull origin master // güncel durumu kendi projene merge ederek GitHub'daki değişiklikleri almış olursun. eğer artık local ilerideyse git push origin/master çalıştırılarak senkron hale getirebilirsin.
+ 
